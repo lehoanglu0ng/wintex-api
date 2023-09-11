@@ -5,6 +5,11 @@
 - Supported OS: macOS, Linux, Windows
 - Automation tool: Newman, Postman
 
+## Note
+
+> - Import collection and environments to Postman for manual and performace testing
+> - Using Newman for automated testing
+
 ## Installing
 
 ```bash
@@ -27,4 +32,4 @@ newman run Wintex.postman_collection.json -e Wintex_UAT.postman_environment.json
 newman run Wintex.postman_collection.json -e Wintex_PROD.postman_environment.json -r htmlextra
 ```
 
-## View Newman report in ./newman folder
+> View Newman report in ./newman folder
