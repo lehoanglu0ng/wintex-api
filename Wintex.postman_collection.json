@@ -1,0 +1,306 @@
+{
+	"info": {
+		"_postman_id": "58c7c91a-0df4-451a-9b47-232748e83038",
+		"name": "Wintex",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2597398"
+	},
+	"item": [
+		{
+			"name": "Valid POST OCR",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", () => {",
+							"  pm.expect(pm.response.code).to.be.oneOf([201,202]);",
+							"});",
+							"",
+							"const jsonData = pm.response.json();",
+							"pm.test(\"Test data type of the response\", () => {",
+							"  pm.expect(jsonData).to.be.an(\"object\");",
+							"  pm.expect(jsonData.id).to.be.a(\"string\");",
+							"  pm.expect(jsonData.name).to.be.a(\"string\");",
+							"  pm.expect(jsonData.birthday).to.be.a(\"string\");",
+							"  pm.expect(jsonData.address).to.be.a(\"string\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"image\": \"\"\n}"
+				},
+				"url": {
+					"raw": "https://{{DOMAIN}}/identity/ocr",
+					"protocol": "https",
+					"host": [
+						"{{DOMAIN}}"
+					],
+					"path": [
+						"identity",
+						"ocr"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "No body POST OCR",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Request body should not be empty\", () => {",
+							"  pm.response.to.have.status(400);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{DOMAIN}}/identity/ocr",
+					"protocol": "https",
+					"host": [
+						"{{DOMAIN}}"
+					],
+					"path": [
+						"identity",
+						"ocr"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Not support GET OCR",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Unsupported request method.\", () => {",
+							"  pm.response.to.have.status(411);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{DOMAIN}}/identity/ocr",
+					"protocol": "https",
+					"host": [
+						"{{DOMAIN}}"
+					],
+					"path": [
+						"identity",
+						"ocr"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Not support PUT OCR",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Unsupported request method.\", () => {",
+							"  pm.response.to.have.status(411);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{DOMAIN}}/identity/ocr",
+					"protocol": "https",
+					"host": [
+						"{{DOMAIN}}"
+					],
+					"path": [
+						"identity",
+						"ocr"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Not support PATCH OCR",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Unsupported request method.\", () => {",
+							"  pm.response.to.have.status(411);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{DOMAIN}}/identity/ocr",
+					"protocol": "https",
+					"host": [
+						"{{DOMAIN}}"
+					],
+					"path": [
+						"identity",
+						"ocr"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Not support DELETE OCR",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Unsupported request method.\", () => {",
+							"  pm.response.to.have.status(411);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://{{DOMAIN}}/identity/ocr",
+					"protocol": "https",
+					"host": [
+						"{{DOMAIN}}"
+					],
+					"path": [
+						"identity",
+						"ocr"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
